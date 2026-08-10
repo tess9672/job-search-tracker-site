@@ -2,18 +2,1013 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>Theresa's Job Tracker</title>
 <style>
-  body { font-family: -apple-system, sans-serif; background:#0f1115; color:#e8e8ec;
-         display:flex; align-items:center; justify-content:center; height:100vh; margin:0; text-align:center; }
-  div { max-width: 480px; padding: 24px; }
-  p { color:#9aa0ac; }
+  :root {
+    --bg: #0f1115; --card: #171a21; --text: #e8e8ec; --muted: #9aa0ac;
+    --accent: #7c9eff; --high: #3fbf6a; --mid: #e0a53b; --low: #b0b3ba; --border: #2a2e37;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.5;
+  }
+  header { padding: 32px 24px 16px; max-width: 900px; margin: 0 auto; }
+  header h1 { margin: 0 0 4px; font-size: 1.6rem; }
+  header p { color: var(--muted); margin: 0; font-size: 0.9rem; }
+  .controls {
+    max-width: 900px; margin: 16px auto 0; padding: 0 24px; display: flex; gap: 12px; flex-wrap: wrap;
+  }
+  .controls select {
+    background: var(--card); color: var(--text); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 12px; font-size: 0.9rem;
+  }
+  main { max-width: 900px; margin: 0 auto; padding: 16px 24px 64px; display: grid; gap: 14px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px;
+  }
+  .card-top { display: flex; gap: 14px; align-items: flex-start; }
+  .badge {
+    flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-weight: 700; font-size: 0.95rem; color: #0f1115;
+  }
+  .badge.high { background: var(--high); }
+  .badge.mid { background: var(--mid); }
+  .badge.low { background: var(--low); }
+  .titles h2 { margin: 0 0 2px; font-size: 1.05rem; }
+  .meta { color: var(--muted); font-size: 0.85rem; }
+  .rationale { margin: 12px 0 10px; font-size: 0.92rem; color: #d3d5db; }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  .tag {
+    background: #1f2330; border: 1px solid var(--border); color: var(--muted);
+    border-radius: 999px; padding: 3px 10px; font-size: 0.75rem;
+  }
+  .apply {
+    color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem;
+  }
+  .apply:hover { text-decoration: underline; }
+  .empty { color: var(--muted); text-align: center; padding: 60px 20px; }
+  footer { text-align: center; color: var(--muted); font-size: 0.78rem; padding: 20px; }
 </style>
 </head>
 <body>
-<div>
+<header>
   <h1>Theresa's Job Tracker</h1>
-  <p>The first automated run hasn't completed yet. Once the daily pipeline runs, matching job listings will appear here.</p>
+  <p>51 matching roles &middot; data from 2026-08-10 &middot; page generated 2026-08-10 10:01 UTC
+   &middot; 35 filtered out (language/visa hard filter)</p>
+</header>
+<div class="controls">
+  <select id="countryFilter"><option value="">All countries</option><option value="Germany">Germany</option><option value="Netherlands">Netherlands</option><option value="Singapore">Singapore</option><option value="Spain">Spain</option></select>
+  <select id="sourceFilter"><option value="">All sources</option><option value="adzuna">adzuna</option></select>
+  <select id="scoreFilter">
+    <option value="0">Any score</option>
+    <option value="50">Score 50+</option>
+    <option value="75">Score 75+</option>
+  </select>
 </div>
+<main id="jobList">
+  
+        <article class="card" data-country="Spain"
+                  data-source="adzuna" data-score="78">
+          <div class="card-top">
+            <span class="badge high">78</span>
+            <div class="titles">
+              <h2>Consultant – Global Advisory Services</h2>
+              <div class="meta">IQVIA &middot; España &middot; Spain</div>
+            </div>
+          </div>
+          <p class="rationale">Strong fit for IQVIA&#x27;s healthcare consulting role given her 5 years at Deloitte in Organization Transformation with pharma/biotech engagements, MBA, and Eli Lilly internship. Locations include Madrid and Amsterdam matching target geographies, though she lacks in-house commercial ownership experience typical of more senior consultant roles.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T09:59:02Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.es/details/5834451233?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="72">
+          <div class="card-top">
+            <span class="badge mid">72</span>
+            <div class="titles">
+              <h2>Associate Manager</h2>
+              <div class="meta">Clearstate &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">Clearstate is a healthcare-focused market intelligence and strategic advisory firm in Singapore — a strong fit with Theresa&#x27;s consulting background, pharma/biotech vertical exposure, and MBA-level strategic analysis skills. The Associate Manager level aligns with her ~5 years of Deloitte experience plus MBA, though gaps may exist around independent client leadership and MedTech-specific depth.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-08T21:59:13Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5833515592?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Netherlands"
+                  data-source="adzuna" data-score="55">
+          <div class="card-top">
+            <span class="badge mid">55</span>
+            <div class="titles">
+              <h2>Senior Consultant - Strategy &amp; Transformation</h2>
+              <div class="meta">Riverflex &middot; Amsterdam, Noord-Holland &middot; Netherlands</div>
+            </div>
+          </div>
+          <p class="rationale">Her Deloitte transformation consulting background and MBA align well with a Senior Consultant strategy &amp; transformation role, but the posting is Amsterdam-based and pharma/biotech focus is not indicated, and boutique consultancies rarely sponsor visas.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-07T07:36:06Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.nl/details/5831623571?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="45">
+          <div class="card-top">
+            <span class="badge low">45</span>
+            <div class="titles">
+              <h2>Management Trainee</h2>
+              <div class="meta">Accelleron &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">Structured graduate/trainee program in Singapore (a target geography) fits her profile at a high level, but Accelleron is marine/energy turbocharging — far from her pharma/biotech and healthcare strategy focus, so vertical fit is weak.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-07T23:48:14Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5832181730?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="45">
+          <div class="card-top">
+            <span class="badge low">45</span>
+            <div class="titles">
+              <h2>Talent Management Consultant</h2>
+              <div class="meta">Gallup &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">Her Deloitte Organization Transformation background gives some relevance to talent consulting, and Singapore is a target geography, but this role is specifically about Gallup&#x27;s proprietary talent assessment/coaching methodology, not the strategy/BD/commercial work she&#x27;s targeting or has depth in.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-07T23:48:42Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5832181990?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="45">
+          <div class="card-top">
+            <span class="badge low">45</span>
+            <div class="titles">
+              <h2>Senior Consultant — Workplace Science</h2>
+              <div class="meta">Gallup &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">Consulting/research advisory role in Singapore aligns with her target geography and consulting background, but Gallup&#x27;s Workplace Science practice emphasizes rigorous behavioral research, advanced analytics, and org science expertise that goes beyond her Org Transformation consulting scope; she also lacks the senior in-house or deep research methodology depth typically expected at &#x27;Senior Consultant&#x27; level here.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-08T23:48:52Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5833695370?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Spain"
+                  data-source="adzuna" data-score="45">
+          <div class="card-top">
+            <span class="badge low">45</span>
+            <div class="titles">
+              <h2>Manager</h2>
+              <div class="meta">Simon-Kucher &middot; Madrid &middot; Spain</div>
+            </div>
+          </div>
+          <p class="rationale">Simon-Kucher Manager roles typically require 5-7+ years of top-tier strategy/pricing consulting experience with proven project leadership and revenue responsibility; Theresa has 5 years at Deloitte in Organization Transformation (not pricing/commercial strategy) and is a 2026 MBA grad, making her more suited to a post-MBA Consultant/Senior Consultant level than Manager. Spain is a target geography and pharma/biotech vertical fit is decent, but the seniority and pricing-specific expertise gap is significant.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-08T10:02:53Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.es/details/5833183308?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="35">
+          <div class="card-top">
+            <span class="badge low">35</span>
+            <div class="titles">
+              <h2>Business Development Specialist, Asia Pacific</h2>
+              <div class="meta">The Nature Conservancy &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">BD title and APAC/Singapore location align with her targets, but this is nonprofit/public-funding proposal development at TNC — a conservation org — not pharma/biotech or commercial BD where her experience sits. Her consulting analysis and stakeholder skills transfer partially, but she has no grant/public-funding proposal track record.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-07T23:48:38Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5832181940?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="35">
+          <div class="card-top">
+            <span class="badge low">35</span>
+            <div class="titles">
+              <h2>Sales Transformation &amp; Strategic Initiatives Lead (m/w/d)</h2>
+              <div class="meta">Lieferando &middot; Kreuzberg, Berlin &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">Transformation and strategic initiatives work aligns with her Deloitte Organization Transformation background, but this is a senior in-house sales strategy lead role in food delivery — not pharma/biotech — and she lacks owned commercial/sales leadership experience. Germany-based role also raises language and visa risks.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-07T16:40:46Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/details/5832061052?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="35">
+          <div class="card-top">
+            <span class="badge low">35</span>
+            <div class="titles">
+              <h2>AI Transformation / Process Excellence Associate Manager (all genders)</h2>
+              <div class="meta">Accenture &middot; Deutschland &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">Accenture consulting background aligns with her Deloitte transformation experience, but this role emphasizes AI/process excellence and is based in Germany, where German fluency and local right-to-work are typically expected at Associate Manager level. Her strengths in pharma commercial strategy are only tangentially relevant.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-08T17:47:57Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/details/5833694746?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="25">
+          <div class="card-top">
+            <span class="badge low">25</span>
+            <div class="titles">
+              <h2>Senior Principal, Sales and Commercial Effectiveness</h2>
+              <div class="meta">Korn Ferry &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">Korn Ferry Senior Principal roles typically require 10-15+ years of consulting experience with a strong book of business and independent client leadership — Theresa has 5 years at Deloitte plus MBA, and only one full SFE assessment, which is well below the seniority bar. Her commercial effectiveness exposure is real but too junior for a Principal-level hire.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-08T23:48:01Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5833694792?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="25">
+          <div class="card-top">
+            <span class="badge low">25</span>
+            <div class="titles">
+              <h2>EY-Parthenon Associate Director/ Director - Transactions and Corporate Finance (CDD)</h2>
+              <div class="meta">Ernst &amp; Young Advisory Services Sdn Bhd &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">This is an Associate Director/Director level role requiring extensive commercial due diligence leadership experience and a strong track record managing transactions — far beyond a June 2026 MBA graduate&#x27;s 5 years of consulting. While her pharma/biotech consulting and strategic analysis background is directionally relevant to CDD, she lacks the seniority and deal leadership required.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-07T14:00:09Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5831631334?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="25">
+          <div class="card-top">
+            <span class="badge low">25</span>
+            <div class="titles">
+              <h2>Custody Transformation Project Manager - Banking</h2>
+              <div class="meta">Capco &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">Role targets custody/banking transformation project management, requiring deep securities services/custody banking domain expertise Theresa lacks. Her consulting background is in pharma/biotech and org transformation, not financial services.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-07T23:48:06Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5832181625?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="25">
+          <div class="card-top">
+            <span class="badge low">25</span>
+            <div class="titles">
+              <h2>VP, Strategic Business Planning, Private Banking, Consumer Banking Group</h2>
+              <div class="meta">DBS Bank Limited &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">The role requires deep Private Banking domain expertise and VP-level strategic planning experience, which Theresa lacks — her consulting background is in pharma/biotech Organization Transformation, not wealth management or financial services strategy. Her MBA and strategic analysis skills are transferable, but this is a senior specialist role in a vertical she has not worked in.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T14:08:57Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5834410016?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="25">
+          <div class="card-top">
+            <span class="badge low">25</span>
+            <div class="titles">
+              <h2>(Senior) Development Partner, Middle East &amp; Africa</h2>
+              <div class="meta">Maritime and Port Authority of Singapore &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">Role focuses on Middle East &amp; Africa trade development, requiring in-market BD experience and regional expertise Theresa lacks; her pharma/biotech consulting background and lack of owned BD experience are poor fits for a regional trade development role.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-08T23:48:18Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5833694991?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Spain"
+                  data-source="adzuna" data-score="25">
+          <div class="card-top">
+            <span class="badge low">25</span>
+            <div class="titles">
+              <h2>Ex-MBB Strategy Consultant - AI Training (Remote)</h2>
+              <div class="meta">Mindrift &middot; España &middot; Spain</div>
+            </div>
+          </div>
+          <p class="rationale">Ex-MBB is preferred (she was Deloitte, not MBB), and this is a freelance AI-training gig rather than the strategy/BD/healthcare roles she targets. Her consulting background gives partial relevance, but it&#x27;s a poor fit for her actual career goals.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-10T10:31:37Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.es/details/5835405829?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Spain"
+                  data-source="adzuna" data-score="25">
+          <div class="card-top">
+            <span class="badge low">25</span>
+            <div class="titles">
+              <h2>Ex-MBB Strategy Consultant - AI Training (Remote)</h2>
+              <div class="meta">Mindrift &middot; Zaragoza, Aragón &middot; Spain</div>
+            </div>
+          </div>
+          <p class="rationale">This is a freelance AI-training gig requiring ex-MBB (McKinsey/Bain/BCG) strategy consultants; Theresa was at Deloitte, not MBB, which is typically a strict criterion. It also doesn&#x27;t align with her target of full-time strategy/BD roles in pharma/biotech.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-10T10:31:37Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.es/details/5835405834?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="25">
+          <div class="card-top">
+            <span class="badge low">25</span>
+            <div class="titles">
+              <h2>Senior Consultant / Manager Pricing Excellence &amp; Enablement (w/m/d)</h2>
+              <div class="meta">KPMG AG Wirtschaftsprüfungsgesellschaft &middot; Berlin, Deutschland &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">Internal pricing excellence role at KPMG Germany focused on pricing methodology and governance — not her strategy/BD/pharma target areas, and posting is in German suggesting German-language work environment. Her consulting background is transferable but the role&#x27;s specialization (pricing) is not a demonstrated strength.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-08T15:56:26Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/land/ad/5833513454?se=dgwtfKGU8RGwJorEQVFoVA&amp;utm_medium=api&amp;utm_source=194fa569&amp;v=4556846058742A86E072490AE61988691584B3E2" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="25">
+          <div class="card-top">
+            <span class="badge low">25</span>
+            <div class="titles">
+              <h2>Ex-MBB Strategy Consultant - AI Training (Remote)</h2>
+              <div class="meta">Mindrift &middot; Hamburg, Deutschland &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">She has consulting background but was at Deloitte, not MBB as the title explicitly targets. It&#x27;s a freelance AI training gig, not a strategy/BD role aligned with her target roles.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-10T10:21:56Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/details/5835384469?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="25">
+          <div class="card-top">
+            <span class="badge low">25</span>
+            <div class="titles">
+              <h2>Ex-MBB Strategy Consultant - AI Training (Remote)</h2>
+              <div class="meta">Mindrift &middot; München, München (Kreis) &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">This is a freelance AI training gig requiring ex-MBB (McKinsey/Bain/BCG) strategy consulting background; Theresa was at Deloitte, not MBB, which is typically a strict requirement for these roles. It&#x27;s also not aligned with her target of full-time pharma/biotech strategy or BD roles.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-10T10:21:56Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/details/5835384454?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="18">
+          <div class="card-top">
+            <span class="badge low">18</span>
+            <div class="titles">
+              <h2>EY-Parthenon Associate Director/ Director - Transactions and Corporate Finance (CDD)</h2>
+              <div class="meta">EY-Parthenon &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">This is an Associate Director/Director-level Commercial Due Diligence role requiring extensive senior transaction experience, far above a 2026 MBA graduate&#x27;s level. While her Deloitte consulting and pharma/biotech CDD-adjacent work provide topical relevance, she lacks the seniority and deal leadership track record required.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T14:09:30Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5834410383?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Netherlands"
+                  data-source="adzuna" data-score="15">
+          <div class="card-top">
+            <span class="badge low">15</span>
+            <div class="titles">
+              <h2>Delivery Manager (Datacenter Field Services)</h2>
+              <div class="meta">RM Staffing B.V. &middot; Nederland &middot; Netherlands</div>
+            </div>
+          </div>
+          <p class="rationale">This is a datacenter field services delivery/operations role requiring hands-on orchestration of hardware installations and engineer dispatch — unrelated to Theresa&#x27;s pharma/biotech strategy and consulting background. No meaningful overlap with her competencies or target roles.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-07T07:33:28Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.nl/details/5831620734?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="15">
+          <div class="card-top">
+            <span class="badge low">15</span>
+            <div class="titles">
+              <h2>Commercial Director</h2>
+              <div class="meta">Hunter Amenities International &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">This is a senior Commercial Director role requiring deep P&amp;L ownership and executed commercial strategy in the guest amenities/hospitality sector — Theresa is a 2026 MBA grad with consulting experience and no in-house commercial leadership or industry fit.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T14:06:13Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5834408371?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="15">
+          <div class="card-top">
+            <span class="badge low">15</span>
+            <div class="titles">
+              <h2>Senior Regional Business Development Manager</h2>
+              <div class="meta">Rhone Trust &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">This is a senior BD role in trust/wealth management for family wealth succession — a domain (private banking/trusts) where Theresa has no experience. Her BD exposure is in pharma/biotech licensing, not HNW wealth structuring.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-07T21:58:42Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5832018479?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="15">
+          <div class="card-top">
+            <span class="badge low">15</span>
+            <div class="titles">
+              <h2>Franchise Business Manager</h2>
+              <div class="meta">Yew Kee Group &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">This is an F&amp;B franchise operations role focused on franchisee recruitment, store openings, and operational excellence — none of which match Theresa&#x27;s pharma/biotech-adjacent strategy and consulting background. No meaningful overlap with her core competencies or target roles.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-07T03:59:40Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5830863220?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="15">
+          <div class="card-top">
+            <span class="badge low">15</span>
+            <div class="titles">
+              <h2>APAC Occupancy Lead, GREF Regional Portfolio Management (RPM) APAC</h2>
+              <div class="meta">Amazon Wood &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">This is a specialized corporate real estate/occupancy planning leadership role requiring deep expertise in space management, portfolio planning, and facilities — none of which are in the candidate&#x27;s pharma/biotech strategy consulting background. No meaningful overlap with her target roles.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T14:07:51Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5834409394?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="15">
+          <div class="card-top">
+            <span class="badge low">15</span>
+            <div class="titles">
+              <h2>Corporate Management Trainee</h2>
+              <div class="meta">TREE ART &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">This is an entry-level management trainee role at an art education company in Singapore — unrelated to pharma/biotech, strategy consulting, or BD, which are Theresa&#x27;s target roles. The seniority and industry are a poor fit for an MBA graduate with 5 years of consulting experience.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-08T21:59:30Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5833515810?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Spain"
+                  data-source="adzuna" data-score="15">
+          <div class="card-top">
+            <span class="badge low">15</span>
+            <div class="titles">
+              <h2>Strategic Key Account Director: Channel Growth Leader</h2>
+              <div class="meta">ELP Consult Ltd. &middot; Madrid, Comunidad de Madrid &middot; Spain</div>
+            </div>
+          </div>
+          <p class="rationale">This is a senior sales/KAM leadership role requiring established commercial leadership, channel management, and negotiation experience — none of which Theresa has owned (her background is consulting and CEO-support, not in-house sales leadership). Industry is also not clearly pharma/biotech.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T09:59:40Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.es/details/5834451557?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Spain"
+                  data-source="adzuna" data-score="15">
+          <div class="card-top">
+            <span class="badge low">15</span>
+            <div class="titles">
+              <h2>Key Account Director</h2>
+              <div class="meta">ELP Consult Ltd. &middot; Madrid, Comunidad de Madrid &middot; Spain</div>
+            </div>
+          </div>
+          <p class="rationale">This is a senior Key Account Director role requiring deep in-house commercial leadership and KAM team management in Spain, which far exceeds Theresa&#x27;s MBA-level experience and consulting background. She has not owned in-house commercial strategy or led sales teams, making this a significant seniority and functional mismatch.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T09:59:31Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.es/details/5834451437?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Spain"
+                  data-source="adzuna" data-score="15">
+          <div class="card-top">
+            <span class="badge low">15</span>
+            <div class="titles">
+              <h2>Partnership France and Benelux</h2>
+              <div class="meta">Nextlane &middot; Madrid, Comunidad de Madrid &middot; Spain</div>
+            </div>
+          </div>
+          <p class="rationale">This is a partnership role focused on France and Benelux in the automotive software industry — outside her pharma/biotech/healthcare focus and almost certainly requiring French and/or Dutch given the geographic scope. Her consulting background doesn&#x27;t align with automotive SaaS partnerships.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-10T10:01:17Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.es/details/5835352827?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="15">
+          <div class="card-top">
+            <span class="badge low">15</span>
+            <div class="titles">
+              <h2>Trainee SAP Key User &amp; Business Process Management (m/w/x)</h2>
+              <div class="meta">Arvato &middot; Gütersloh, Gütersloh (Kreis) &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">German-language posting for a trainee SAP/BPM role in Gütersloh; the candidate has no SAP background and this is an entry-level trainee role misaligned with her MBA-level strategy/BD target roles. German fluency is almost certainly required for a German trainee program.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-10T01:55:54Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/land/ad/5835072684?se=zLkmf6GU8RGl19zj4IdX3w&amp;utm_medium=api&amp;utm_source=194fa569&amp;v=BC8ADD7A653F05BD6159046037EAE7C45994BE7B" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="10">
+          <div class="card-top">
+            <span class="badge low">10</span>
+            <div class="titles">
+              <h2>Head of Retail Training &amp; Customer Experience - Jewellery</h2>
+              <div class="meta">REVUP CONSULTING PTE. LTD. &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">This is a specialized jewellery retail training and customer experience leadership role requiring deep retail operations and in-store training expertise, which is entirely outside Theresa&#x27;s pharma/biotech-focused consulting background. No relevant overlap beyond generic stakeholder management.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-08T14:05:39Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5833061324?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="10">
+          <div class="card-top">
+            <span class="badge low">10</span>
+            <div class="titles">
+              <h2>Manager, Solutions Consultants, DACH</h2>
+              <div class="meta">Notion &middot; München, München (Kreis) &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">This is a Solutions Consulting management role in the DACH region for a SaaS product, requiring pre-sales leadership experience and likely German fluency — none of which match Theresa&#x27;s pharma/biotech strategy consulting background.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-07T18:23:30Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/details/5832203886?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="10">
+          <div class="card-top">
+            <span class="badge low">10</span>
+            <div class="titles">
+              <h2>Trainee (m/w/d) im Rohkaffee Management</h2>
+              <div class="meta">Melitta Gruppe &middot; Bremen, Deutschland &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">This is a coffee trading trainee role in Germany, entirely outside her pharma/biotech/healthcare strategy focus and unrelated to her consulting or BD background. German-language working environment is highly likely for a German trainee program.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T17:55:29Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/land/ad/5834808234?se=zLkmf6GU8RGl19zj4IdX3w&amp;utm_medium=api&amp;utm_source=194fa569&amp;v=6D6CF0CF5B5870DF7552B0BEB1B6DD692704EABD" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="8">
+          <div class="card-top">
+            <span class="badge low">8</span>
+            <div class="titles">
+              <h2>APAC Commercial Director: Growth &amp; Strategy Leader</h2>
+              <div class="meta">Hunter Amenities International &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">This is a senior director role requiring 10+ years of commercial leadership in hospitality, while Theresa is a 2026 MBA grad with 5 years of consulting experience and no hospitality or in-house commercial P&amp;L ownership. Language fit (English/Mandarin) is good but seniority and industry gap are disqualifying.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T14:06:46Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5834408691?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="8">
+          <div class="card-top">
+            <span class="badge low">8</span>
+            <div class="titles">
+              <h2>Regional Director, SEA Growth &amp; Cross-Border Operations</h2>
+              <div class="meta">MAIDS CENTRAL PTE. LTD. &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">This is a senior Regional Director role with full P&amp;L ownership in domestic worker/maid recruitment across SEA — a completely different industry from her pharma/biotech consulting background, and it requires senior in-house leadership experience she does not have as an MBA new grad.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T14:09:30Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5834410368?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="8">
+          <div class="card-top">
+            <span class="badge low">8</span>
+            <div class="titles">
+              <h2>Director, Revenue Growth Management AMEA</h2>
+              <div class="meta">Mondelez International &middot; HarbourFront, Central &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">This is a Director-level role requiring deep revenue growth management expertise, trade spend optimization, and senior leadership experience in CPG — far beyond an MBA new-grad level. Theresa&#x27;s consulting background does not align with this senior in-house commercial leadership position.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-08T13:24:54Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5833019649?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Singapore"
+                  data-source="adzuna" data-score="5">
+          <div class="card-top">
+            <span class="badge low">5</span>
+            <div class="titles">
+              <h2>Recruitment Consultant / Senior Recruitment Consultant / Team Lead</h2>
+              <div class="meta">TALENT FIRST PTE. LTD. &middot; Singapore &middot; Singapore</div>
+            </div>
+          </div>
+          <p class="rationale">This is a recruitment/staffing sales role, which does not align with the candidate&#x27;s target roles in pharma/biotech strategy, commercial strategy, or consulting. Her consulting background is not relevant to agency recruiting.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-10T16:18:41Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.sg/details/5835365833?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Spain"
+                  data-source="adzuna" data-score="5">
+          <div class="card-top">
+            <span class="badge low">5</span>
+            <div class="titles">
+              <h2>Technical Sales Consultant</h2>
+              <div class="meta">Watts Water &middot; España &middot; Spain</div>
+            </div>
+          </div>
+          <p class="rationale">This is a technical sales role in plumbing/HVAC requiring engineering domain expertise and Spanish-market technical sales experience—completely misaligned with Theresa&#x27;s pharma/biotech strategy consulting background.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-07T10:06:00Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.es/details/5831682794?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Spain"
+                  data-source="adzuna" data-score="5">
+          <div class="card-top">
+            <span class="badge low">5</span>
+            <div class="titles">
+              <h2>IPB, Client Advisor, Executive Director, Spain</h2>
+              <div class="meta">Next Frontier Capital &middot; Madrid, Comunidad de Madrid &middot; Spain</div>
+            </div>
+          </div>
+          <p class="rationale">This is an Executive Director-level private banking role requiring extensive experience in wealth management and client acquisition for HNW clients — far beyond a 2026 MBA graduate&#x27;s profile. Theresa has no private banking or wealth management background.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-10T10:01:06Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.es/details/5835352708?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="5">
+          <div class="card-top">
+            <span class="badge low">5</span>
+            <div class="titles">
+              <h2>SAP Managing Consultant Procurement</h2>
+              <div class="meta">Ignitesap &middot; Deutschland &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">This is a senior SAP Procurement consulting role requiring deep SAP S/4HANA procurement expertise and executive advisory experience in that domain — Theresa has no SAP implementation background and her consulting focus is organization transformation, not procurement/ERP.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T17:25:37Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/details/5834760622?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="5">
+          <div class="card-top">
+            <span class="badge low">5</span>
+            <div class="titles">
+              <h2>SAP Procurement Managing Consultant</h2>
+              <div class="meta">Ignitesap &middot; Deutschland &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">This is a senior SAP S/4HANA Procurement/MM technical consulting role requiring deep SAP module expertise, which Theresa does not have. Her background is organizational transformation and pharma commercial strategy, not SAP implementation.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T17:47:08Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/details/5834805622?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Spain"
+                  data-source="adzuna" data-score="3">
+          <div class="card-top">
+            <span class="badge low">3</span>
+            <div class="titles">
+              <h2>Global Medical Advisor, Nephrology | Clinical Trials</h2>
+              <div class="meta">IQVIA &middot; Madrid, Comunidad de Madrid &middot; Spain</div>
+            </div>
+          </div>
+          <p class="rationale">This role requires a medical degree with license and 5+ years of clinical medicine/trials experience — Theresa is an MBA consultant with no medical qualifications or clinical trial experience.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-08T09:58:16Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.es/details/5833178870?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Spain"
+                  data-source="adzuna" data-score="3">
+          <div class="card-top">
+            <span class="badge low">3</span>
+            <div class="titles">
+              <h2>Associate Medical Director, Nephrology</h2>
+              <div class="meta">IQVIA &middot; Madrid, Comunidad de Madrid &middot; Spain</div>
+            </div>
+          </div>
+          <p class="rationale">This role requires a medical doctor (MD) with clinical/therapeutic expertise in nephrology to serve as a medical/scientific advisor. Theresa is an MBA consultant with no medical degree or clinical background, making her fundamentally unqualified.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-08T09:59:04Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.es/details/5833179499?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Spain"
+                  data-source="adzuna" data-score="3">
+          <div class="card-top">
+            <span class="badge low">3</span>
+            <div class="titles">
+              <h2>CEO – MBI Program (Operating Partner) – Spain</h2>
+              <div class="meta">All Interests Aligned &middot; Madrid, Comunidad de Madrid &middot; Spain</div>
+            </div>
+          </div>
+          <p class="rationale">This role explicitly requires an experienced operator with real P&amp;L track record and deep established professional roots in Spain — Theresa is a recent MBA with consulting background, no P&amp;L ownership, and no Spain roots. It&#x27;s essentially the opposite of a search-fund-fresh-out-of-MBA profile they&#x27;re screening out.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-08T09:58:33Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.es/details/5833179123?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Spain"
+                  data-source="adzuna" data-score="3">
+          <div class="card-top">
+            <span class="badge low">3</span>
+            <div class="titles">
+              <h2>CEO – MBI Program (Operating Partner) – Spain</h2>
+              <div class="meta">All Interests Aligned &middot; Valencia, Comunidad Valenciana &middot; Spain</div>
+            </div>
+          </div>
+          <p class="rationale">This role explicitly requires an experienced operator with a real P&amp;L track record and established professional roots in Spain — the posting even contrasts itself against first-time search funders fresh out of business school, which is exactly Theresa&#x27;s profile. She has no CEO or P&amp;L ownership experience.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T09:58:38Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.es/details/5834451040?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="3">
+          <div class="card-top">
+            <span class="badge low">3</span>
+            <div class="titles">
+              <h2>Principal SAP FI/CO Consultant</h2>
+              <div class="meta">Ignitesap &middot; Deutschland &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">This is a senior SAP FI/CO technical consulting role requiring deep SAP Finance implementation expertise, which the candidate does not have. Her background is in organization transformation consulting and pharma commercial strategy, not SAP systems.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-07T17:19:15Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/details/5832085014?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="3">
+          <div class="card-top">
+            <span class="badge low">3</span>
+            <div class="titles">
+              <h2>Senior SAP FI/CO Consultant</h2>
+              <div class="meta">Ignitesap &middot; Deutschland &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">This is a Senior SAP FI/CO technical consulting role requiring deep SAP Finance module expertise, which the candidate does not have — her consulting background is in organization transformation, not SAP implementation.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-08T17:41:26Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/details/5833687001?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="3">
+          <div class="card-top">
+            <span class="badge low">3</span>
+            <div class="titles">
+              <h2>Managing Consultant - SAP FI/CO</h2>
+              <div class="meta">Ignitesap &middot; Deutschland &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">This is a senior SAP FI/CO delivery role requiring deep S/4HANA finance transformation expertise, which the candidate does not have. Her consulting background is in organization transformation, not SAP implementation.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-07T17:25:25Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/details/5832090977?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="3">
+          <div class="card-top">
+            <span class="badge low">3</span>
+            <div class="titles">
+              <h2>SAP SD Managing Consultant</h2>
+              <div class="meta">Ignitesap &middot; Deutschland &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">This is a senior SAP SD technical consulting role requiring deep S/4HANA expertise, which the candidate does not have. Her background is in organization transformation and pharma commercial strategy, not SAP module implementation.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T17:32:41Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/details/5834782702?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+        <article class="card" data-country="Germany"
+                  data-source="adzuna" data-score="3">
+          <div class="card-top">
+            <span class="badge low">3</span>
+            <div class="titles">
+              <h2>SAP Managing Consultant SCM (PP)</h2>
+              <div class="meta">Ignitesap &middot; Deutschland &middot; Germany</div>
+            </div>
+          </div>
+          <p class="rationale">This is a senior SAP SCM/PP managing consultant role requiring deep SAP S/4HANA implementation expertise, which the candidate does not have. Her background is in pharma commercial strategy and organization transformation, not SAP technical consulting.</p>
+          <div class="tags">
+            <span class="tag">source: adzuna</span>
+            <span class="tag">Visa sponsorship not mentioned -- judge case by case</span>
+            <span class="tag warn">posted: 2026-08-09T18:00:43Z</span>
+          </div>
+          <a class="apply" href="https://www.adzuna.de/details/5834809777?utm_medium=api&amp;utm_source=194fa569" target="_blank" rel="noopener noreferrer">View / apply &rarr;</a>
+        </article>
+        
+</main>
+<footer>Generated automatically. Not a substitute for reading the full posting before applying.</footer>
+<script>
+  const countryFilter = document.getElementById('countryFilter');
+  const sourceFilter = document.getElementById('sourceFilter');
+  const scoreFilter = document.getElementById('scoreFilter');
+  const cards = Array.from(document.querySelectorAll('.card'));
+
+  function applyFilters() {
+    const country = countryFilter.value;
+    const source = sourceFilter.value;
+    const minScore = parseInt(scoreFilter.value, 10);
+    cards.forEach(card => {
+      const matches =
+        (!country || card.dataset.country === country) &&
+        (!source || card.dataset.source === source) &&
+        (parseInt(card.dataset.score, 10) >= minScore);
+      card.style.display = matches ? '' : 'none';
+    });
+  }
+  [countryFilter, sourceFilter, scoreFilter].forEach(el => el.addEventListener('change', applyFilters));
+</script>
 </body>
 </html>
